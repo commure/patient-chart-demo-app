@@ -1,0 +1,45 @@
+{
+  "name": "my-commure-smart-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@commure/components-core": "0.1.12",
+    "@commure/components-data": "0.1.12",
+    "@commure/fhir-types": "0.1.10",
+    "@commure/smart-core": "0.1.12",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "babel-polyfill": "6.26.0",
+    "node-sass": "^4",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.1",
+    "regenerator-runtime": "^0.13.3",
+    "typescript": "~3.7.2"
+  },
+  "resolutions": {
+    "@commure/fhir-types": "0.1.10"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
