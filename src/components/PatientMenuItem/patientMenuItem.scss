@@ -1,0 +1,28 @@
+.patient-menu-item {
+  padding: $spacing-large $spacing-larger;
+  background-color: $white;
+  &--selected {
+    box-shadow: inset 3px 0 0 $blue2;
+  }
+  &:hover {
+    background-color: rgba($gray5, 0.15);
+    cursor: pointer;
+  }
+  &__name,
+  &__dob {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &__name {
+    text-transform: uppercase;
+    font-weight: $label-font-weight;
+    font-size: $spacing-large;
+    color: $dark-gray;
+    margin-bottom: $spacing-small;
+  }
+  &__dob {
+    color: $gray3;
+    margin: 0;
+  }
+}

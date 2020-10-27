@@ -1,0 +1,58 @@
+$border-color: #d5d5db;
+$grey-text-color: #44444f;
+
+%toggle-button {
+  background-color: $white;
+  border-radius: $spacing-large;
+  width: $spacing-larger;
+  height: $spacing-larger;
+  border: 1px solid $border-color;
+  box-shadow: 0px 3px 16px rgba(0, 0, 0, 0.1);
+  svg {
+    fill: $grey-text-color;
+  }
+  &:hover {
+    background-color: $white;
+    box-shadow: 0px 3px 16px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.empty-no-patient {
+  margin: 16px;
+}
+
+.cm-panel {
+  &-layout {
+    min-height: 100vh;
+  }
+  border-right: 1px solid $border-color;
+  position: relative;
+  min-width: 242px;
+  width: 242px;
+
+  &-toggle-button {
+    margin-left: -1 * $spacing-large;
+    margin-top: 115px;
+    z-index: 5;
+    align-self: flex-start;
+    & > button.bp3-button {
+      @extend %toggle-button;
+    }
+  }
+
+  &--closed {
+    min-width: $spacing-larger;
+    max-width: $spacing-larger;
+
+    .cm-panel-body {
+      overflow: hidden;
+      visibility: hidden;
+    }
+  }
+}
+
+.cm-panel-layout-main {
+  position: relative;
+  overflow-x: auto;
+  min-height: calc(100vh - 40px);
+}

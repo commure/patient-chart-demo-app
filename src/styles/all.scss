@@ -1,0 +1,10 @@
+@import "./_styles.scss"; // Global styles
+@import "./constants.scss"; // Presentation constants
+
+// Component styles:
+@import "../components/PatientList/patientList.scss";
+@import "../components/Dashboard/dashboard.scss";
+@import "../components/PanelBody/panelBody.scss";
+@import "../components/PatientListLoader/patientListLoader.scss";
+@import "../components/PatientMenuItem/patientMenuItem.scss";
+@import "../components/PatientInfo/patientInfo.scss";

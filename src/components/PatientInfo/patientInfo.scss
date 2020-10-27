@@ -1,0 +1,34 @@
+$min-width-column: 350px;
+
+.patient-info {
+  display: flex;
+  flex-wrap: wrap;
+
+  h1 {
+    padding: 0px $spacing-large;
+    margin-top: $spacing-medium-large;
+    flex-basis: 100%;
+  }
+
+  .column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: $min-width-column;
+  }
+
+  &__vitals {
+    flex: 1;
+    min-width: $min-width-column;
+  }
+
+  &__fishbone {
+    flex: 1;
+    min-width: $min-width-column;
+  }
+
+  &__conditions.patient_medications {
+    flex-basis: 100%;
+    min-width: 900px;
+  }
+}
