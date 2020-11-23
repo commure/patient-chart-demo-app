@@ -1,45 +1,42 @@
-import { AppHeader } from "@commure/components-core";
-import { CommureSmartApp } from "@commure/components-data";
-import { FhirDataQuery } from "@commure/components-data";
-import SMARTClient from "@commure/smart-core";
-import { PatientCard } from "@commure/components-core";
-import { Bundle, Patient } from "@commure/fhir-types/r4/types";
 import React from "react";
-import "./App.scss";
+
+import { FhirClientProvider } from "@commure/components-data-internal";
+// @ts-ignore No typings are provided for this library yet
+import { ErrorBoundary } from "@commure/components-web-fhir";
+import FhirRest from "@commure/fhir-rest";
+import SMARTApp from "@commure/smart-new";
+import SMARTClient from "@commure/smart-core";
+
+import Dashboard from "./components/Dashboard/Dashboard";
 import { smartConfig } from "./config";
+import { HOFSmartApp } from "./types/index";
+
+import "./styles/all.scss";
 
 const smartClient = new SMARTClient(smartConfig);
 
 function App() {
+  const fhirRest = new FhirRest({
+    baseUrl: smartClient.fhirBaseUrl,
+    secureFetch: smartClient.fetch.bind(smartClient)
+  });
+
   return (
-    <CommureSmartApp client={smartClient}>
-      <AppHeader appName="My First Commure App" fixedToTop />
-      <div className="hello-world-container">
-        <FhirDataQuery queryString="Patient">
-          {({ data, loading }) => {
-            if (loading) {
-              return "Loading...";
-            }
-            if (!data) {
-              return "Error loading data!";
-            }
-            /* Rendering each of the patients below here */
-            const patients: Patient[] = (data as Bundle).entry!.map(
-              value => value.resource as Patient
-            );
-            return (
-              <div>
-                {patients.map((patient, index) => (
-                  <PatientCard key={index} resource={patient} />
-                ))}
-              </div>
-            );
-          }}
-        </FhirDataQuery>
-      </div>
-    </CommureSmartApp>
+    <ErrorBoundary
+      description="An unexpected error occurred. Please reload."
+      icon="error"
+    >
+      <FhirClientProvider config={{ fhirRest }}>
+        <Dashboard />
+      </FhirClientProvider>
+    </ErrorBoundary>
   );
 }
 
+const asSMARTApp: HOFSmartApp = WrappedComponent => props => (
+  <SMARTApp client={smartClient}>
+    <WrappedComponent {...props} />
+  </SMARTApp>
+);
 
-export default App;
+export default asSMARTApp(App);
