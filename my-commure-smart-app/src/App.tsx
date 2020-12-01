@@ -4,7 +4,7 @@ import SMARTClient from "@commure/smart-core";
 import { PatientCard } from "@commure/components-core";
 import { Bundle, Patient } from "@commure/fhir-types/r4/types";
 import React from "react";
-import "./App.css";
+import "./App.scss";
 import { smartConfig } from "./config";
 
 const smartClient = new SMARTClient(smartConfig);
