@@ -1,24 +1,26 @@
 import React from "react";
 
-import { AppHeader } from "@commure/components-core";
 import { CommureSmartApp } from "@commure/components-data";
 import SMARTClient from "@commure/smart-core";
-import { PatientList } from "./components/PatientList/PatientList";
+import Dashboard from "./components/Dashboard/Dashboard";
 
 import "./styles/all.scss";
 import { smartConfig } from "./config";
+import { HOFSmartApp } from "./types";
+
 
 const smartClient = new SMARTClient(smartConfig);
 
 function App() {
   return (
-    <CommureSmartApp client={smartClient}>
-      <AppHeader appName="My First Commure App" fixedToTop />
-      <div className="app-container">
-        <PatientList />
-      </div>
-    </CommureSmartApp>
+    <Dashboard />
   );
 }
 
-export default App;
+const asSMARTApp: HOFSmartApp = WrappedComponent => props => (
+  <CommureSmartApp client={smartClient}>
+    <WrappedComponent {...props} />
+  </CommureSmartApp>
+);
+
+export default asSMARTApp(App);
