@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-
 import { InputGroup } from "@commure/components-foundation";
+import useDebounce from "../../utils/hooks/useDebounce";
+import PatientListLoader from "../PatientListLoader/PatientListLoader";
 
 const PanelBody: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const debouncedSearchTerm = useDebounce(searchTerm, 500);
   return (
     <>
       <InputGroup
@@ -15,6 +17,7 @@ const PanelBody: React.FC = () => {
           setSearchTerm(event.target.value)
         }
       />
+      <PatientListLoader searchPatientName={debouncedSearchTerm} />
     </>
   );
 };
