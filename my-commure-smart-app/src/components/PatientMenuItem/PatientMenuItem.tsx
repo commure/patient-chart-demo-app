@@ -20,8 +20,8 @@ const PatientMenuItem: React.FC<Props> = ({ isSelected, patient, onClick }) => {
         <FhirHumanName
           className="patient-menu-item__name"
           hidePrefixes
-          value={patient.name[0]}
           nameAssemblyOrder="G"
+          value={patient.name[0]}
         />
       ) : (
         "Unknown"
