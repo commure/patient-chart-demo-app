@@ -21,8 +21,8 @@ export const PatientList: React.FC = () => (
                   <FhirHumanName
                     className="patient-menu-item__name"
                     hidePrefixes
-                    value={(patient.name || [])[0]}
                     nameAssemblyOrder="G"
+                    value={(patient.name || [])[0]}
                   />
                   <p className="patient-list__date">
                     DOB: <FhirDateTime value={patient.birthDate} inline />
