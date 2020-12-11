@@ -8,13 +8,10 @@ import "./styles/all.scss";
 import { smartConfig } from "./config";
 import { HOFSmartApp } from "./types";
 
-
 const smartClient = new SMARTClient(smartConfig);
 
 function App() {
-  return (
-    <Dashboard />
-  );
+  return <Dashboard />;
 }
 
 const asSMARTApp: HOFSmartApp = WrappedComponent => props => (

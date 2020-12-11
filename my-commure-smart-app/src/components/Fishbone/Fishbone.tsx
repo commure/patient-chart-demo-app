@@ -16,10 +16,10 @@ interface Props {
   fishboneType: keyof typeof FISHBONE_LOINC_MAP;
 }
 
-const Fishbone: React.FC<Props> = ({ 
-  patientId, 
+const Fishbone: React.FC<Props> = ({
+  patientId,
   fishboneType,
-  ...props 
+  ...props
 }): JSX.Element => {
   return (
     <FhirDataQuery queryString={buildFishboneQuery(patientId, fishboneType)}>
@@ -35,11 +35,13 @@ const Fishbone: React.FC<Props> = ({
           );
         }
         if (loading) {
-          return <FishboneUnconnected
-            isLoading 
-            fishboneType={fishboneType}
-            {...props} 
-          />;
+          return (
+            <FishboneUnconnected
+              isLoading
+              fishboneType={fishboneType}
+              {...props}
+            />
+          );
         }
         const observations = fhirpath("entry.resource", data);
         return (
