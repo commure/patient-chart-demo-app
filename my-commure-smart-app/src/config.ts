@@ -1,15 +1,16 @@
-import { StandalonePreference } from "@commure/smart-core";
+import { StandalonePreference, Config } from "@commure/smart-core";
 
-const fhirBaseUrl = process.env.REACT_APP_FHIR_BASE_URL;
-
-if (fhirBaseUrl === undefined) {
+if (!process.env.REACT_APP_CLIENT_ID || !process.env.REACT_APP_FHIR_BASE_URL) {
   throw new Error(
-    "Make sure you set your FHIR_BASE_URL! e.g. export REACT_APP_FHIR_BASE_URL=https://api-0000.developer.commure.com/api/v1/r4 && yarn start"
+    "Please define `REACT_APP_CLIENT_ID` and `REACT_APP_FHIR_BASE_URL` in your .env file"
   );
 }
 
-export const smartConfig = {
-  clientId: "smart_hello_world",
+const clientId = process.env.REACT_APP_CLIENT_ID;
+const fhirBaseUrl = process.env.REACT_APP_FHIR_BASE_URL;
+
+export const smartConfig: Config = {
+  clientId,
   scopes: ["launch", "openid", "fhiruser", "patient/*.read"],
   redirectUri: `http://localhost:1234/callback`,
   standaloneLaunch: StandalonePreference.IfNecessary,
