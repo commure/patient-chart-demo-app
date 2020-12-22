@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@commure/cra-template-smart-app-typescript": "file:/Users/philippeterson/Code/commure/fend/libs/cra-template-smart-app-typescript",
     "@commure/components-core": "0.1.12",
     "@commure/components-data": "0.1.12",
     "@commure/fhir-types": "0.1.10",
