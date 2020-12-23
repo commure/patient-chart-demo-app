@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@commure/components-core": "0.1.11",
-    "@commure/components-data": "0.1.11",
+    "@commure/components-core": "0.1.12",
+    "@commure/components-data": "0.1.12",
     "@commure/fhir-types": "0.1.10",
-    "@commure/smart-core": "0.1.11",
+    "@commure/smart-core": "0.1.12",
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
