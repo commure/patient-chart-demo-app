@@ -1613,11 +1613,6 @@
     "@commure/components-foundation" "0.1.11"
     "@commure/logger" "0.1.11"
 
-"@commure/style@0.1.10":
-  version "0.1.10"
-  resolved "https://npm.developer.commure.com/@commure%2fstyle/-/style-0.1.10.tgz#4fe59425b35b59e6d4c75789d4e4ba317d8b28a7"
-  integrity sha512-irJg2IithScvaFXWTfMpJzQios2GTjLtq4G1dvPp3RxPQ0v3uZd9BMUC0jupY/uc3hqYKH/Nh3pxqusI/2Jgfw==
-
 "@commure/style@0.1.11":
   version "0.1.11"
   resolved "https://npm.developer.commure.com/@commure%2fstyle/-/style-0.1.11.tgz#fbe299692a06b5e18cd62d402e7ed7c387133d38"

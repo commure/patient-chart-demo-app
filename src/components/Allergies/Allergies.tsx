@@ -3,24 +3,26 @@ import React from "react";
 // @ts-ignore No TS definitions for fhirpath yet.
 import fhirpath from "@commure/fhirpath";
 import { FhirDataQuery } from "@commure/components-data";
-import MedicationsUnconnected from "@commure/components-core/src/components/patientView/medications/unconnected/Medications";
-import { buildMedicationsQuery } from "@commure/components-core/src/components/patientView/utils/queries";
+import { patientView } from "@commure/components-core";
 
 import { FhirDataQueryResponse } from "../../types";
 import { errorToOperationOutcome } from "../../utils/helpers/errorConverter";
+
+const { AllergiesUnconnected } = patientView.allergies;
+const { buildAllergiesQuery } = patientView.utils.queries;
 
 interface Props {
   baseClass: string;
   patientId: string;
 }
 
-const Medications: React.FC<Props> = ({ patientId, ...props }): JSX.Element => {
+const Allergies: React.FC<Props> = ({ patientId, ...props }): JSX.Element => {
   return (
-    <FhirDataQuery queryString={buildMedicationsQuery(patientId)}>
+    <FhirDataQuery queryString={buildAllergiesQuery(patientId)}>
       {({ data, error, loading }: FhirDataQueryResponse): JSX.Element => {
         if (error) {
           return (
-            <MedicationsUnconnected
+            <AllergiesUnconnected
               isLoading={false}
               error={errorToOperationOutcome(error, "MedicationStatement")}
               {...props}
@@ -28,11 +30,11 @@ const Medications: React.FC<Props> = ({ patientId, ...props }): JSX.Element => {
           );
         }
         if (loading) {
-          return <MedicationsUnconnected isLoading {...props} />;
+          return <AllergiesUnconnected isLoading {...props} />;
         }
         const medicationStatements = fhirpath("entry.resource", data);
         return (
-          <MedicationsUnconnected
+          <AllergiesUnconnected
             isLoading={false}
             data={{ medicationStatements }}
             {...props}
@@ -43,4 +45,4 @@ const Medications: React.FC<Props> = ({ patientId, ...props }): JSX.Element => {
   );
 };
 
-export default Medications;
+export default Allergies;
