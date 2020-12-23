@@ -3,12 +3,14 @@ import React from "react";
 // @ts-ignore No TS definitions for fhirpath yet.
 import fhirpath from "@commure/fhirpath";
 import { FhirDataQuery } from "@commure/components-data";
-import FishboneUnconnected from "@commure/components-core/src/components/patientView/fishbone/unconnected/Fishbone";
-import { buildFishboneQuery } from "@commure/components-core/src/components/patientView/utils/queries";
-import { FISHBONE_LOINC_MAP } from "@commure/components-core/src/components/patientView/fishbone/constants";
+import { patientView } from "@commure/components-core";
 
 import { FhirDataQueryResponse } from "../../types";
 import { errorToOperationOutcome } from "../../utils/helpers/errorConverter";
+
+const { FishboneUnconnected } = patientView.fishbone;
+const { FISHBONE_LOINC_MAP } = patientView.fishbone.constants;
+const { buildFishboneQuery } = patientView.utils.queries;
 
 interface Props {
   baseClass: string;

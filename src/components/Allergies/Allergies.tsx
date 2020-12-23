@@ -3,11 +3,13 @@ import React from "react";
 // @ts-ignore No TS definitions for fhirpath yet.
 import fhirpath from "@commure/fhirpath";
 import { FhirDataQuery } from "@commure/components-data";
-import AllergiesUnconnected from "@commure/components-core/src/components/patientView/medications/unconnected/Allergies";
-import { buildAllergiesQuery } from "@commure/components-core/src/components/patientView/utils/queries";
+import { patientView } from "@commure/components-core";
 
 import { FhirDataQueryResponse } from "../../types";
 import { errorToOperationOutcome } from "../../utils/helpers/errorConverter";
+
+const { AllergiesUnconnected } = patientView.allergies;
+const { buildAllergiesQuery } = patientView.utils.queries;
 
 interface Props {
   baseClass: string;

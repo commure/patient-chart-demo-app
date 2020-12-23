@@ -3,11 +3,13 @@ import React from "react";
 // @ts-ignore No TS definitions for fhirpath yet.
 import fhirpath from "@commure/fhirpath";
 import { FhirDataQuery } from "@commure/components-data";
-import ConditionUnconnected from "@commure/components-core/src/components/patientView/patientCondition/unconnected/PatientCondition";
-import { buildConditionQuery } from "@commure/components-core/src/components/patientView/utils/queries";
+import { patientView } from "@commure/components-core";
 
 import { FhirDataQueryResponse } from "../../types";
 import { errorToOperationOutcome } from "../../utils/helpers/errorConverter";
+
+const { PatientConditionUnconnected } = patientView.patientCondition;
+const { buildConditionQuery } = patientView.utils.queries;
 
 interface Props {
   baseClass: string;
@@ -20,7 +22,7 @@ const Condition: React.FC<Props> = ({ patientId, ...props }): JSX.Element => {
       {({ data, error, loading }: FhirDataQueryResponse): JSX.Element => {
         if (error) {
           return (
-            <ConditionUnconnected
+            <PatientConditionUnconnected
               isLoading={false}
               error={errorToOperationOutcome(error, "Condition")}
               {...props}
@@ -28,11 +30,11 @@ const Condition: React.FC<Props> = ({ patientId, ...props }): JSX.Element => {
           );
         }
         if (loading) {
-          return <ConditionUnconnected isLoading {...props} />;
+          return <PatientConditionUnconnected isLoading {...props} />;
         }
         const medicationStatements = fhirpath("entry.resource", data);
         return (
-          <ConditionUnconnected
+          <PatientConditionUnconnected
             isLoading={false}
             data={{ medicationStatements }}
             {...props}
