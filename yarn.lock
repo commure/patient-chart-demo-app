@@ -1364,9 +1364,6 @@
     react-uid "2.2.0"
     showdown "^1.9.1"
 
-"@commure/cra-template-smart-app-typescript@file:../commure/fend/libs/cra-template-smart-app-typescript":
-  version "0.1.12"
-
 "@commure/fhir-client@0.1.12":
   version "0.1.12"
   resolved "https://npm.staging.developer.commure.com/@commure%2ffhir-client/-/fhir-client-0.1.12.tgz#6aaba0102f8c20863db6cc89c00242b9ec737a94"
