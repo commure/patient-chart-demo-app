@@ -4,6 +4,7 @@ import { AppHeader } from "@commure/components-core";
 import { LeftPanelLayout } from "@commure/components-foundation";
 import { PatientList } from "../PatientList/PatientList";
 import PanelBody from "../PanelBody/PanelBody";
+import PatientInfo from "../PatientInfo/PatientInfo";
 import { DashboardContextType } from "../../types";
 
 export const DashboardContext = createContext<DashboardContextType>(undefined);
@@ -23,7 +24,11 @@ const Dashboard: React.FC = (): React.ReactElement => {
           {/* Spacer */}
           <div style={{ height: 40 + 16 }}></div>
 
-          <PatientList />
+          {patientId ? (
+            <PatientInfo patientId={patientId} />
+          ) : (
+            <div className="empty-no-patient">No patient ID selected.</div>
+          )}
         </LeftPanelLayout>
       </DashboardContext.Provider>
     </>
