@@ -2,7 +2,6 @@ import React, { createContext, useState } from "react";
 
 import { AppHeader } from "@commure/components-core";
 import { LeftPanelLayout } from "@commure/components-foundation";
-import { PatientList } from "../PatientList/PatientList";
 import PanelBody from "../PanelBody/PanelBody";
 import PatientInfo from "../PatientInfo/PatientInfo";
 import { DashboardContextType } from "../../types";
