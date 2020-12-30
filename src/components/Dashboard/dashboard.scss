@@ -1,0 +1,61 @@
+$white: #fff !default;
+$border-color: #d5d5db !default;
+$cm-spacing-large: 16px !default;
+$cm-spacing-larger: 24px !default;
+$cm-grey-text-color: #44444f !default;
+
+%toggle-button {
+  background-color: $white;
+  border-radius: $cm-spacing-large;
+  width: $cm-spacing-larger;
+  height: $cm-spacing-larger;
+  border: 1px solid $border-color;
+  box-shadow: 0px 3px 16px rgba(0, 0, 0, 0.1);
+  svg {
+    fill: $cm-grey-text-color;
+  }
+  &:hover {
+    background-color: $white;
+    box-shadow: 0px 3px 16px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.empty-no-patient {
+  margin: 16px;
+}
+
+.cm-panel {
+  &-layout {
+    min-height: 100vh;
+  }
+  border-right: 1px solid $border-color;
+  position: relative;
+  min-width: 242px;
+  width: 242px;
+
+  &-toggle-button {
+    margin-left: -1 * $cm-spacing-large;
+    margin-top: 115px;
+    z-index: 5;
+    align-self: flex-start;
+    & > button.bp3-button {
+      @extend %toggle-button;
+    }
+  }
+
+  &--closed {
+    min-width: $cm-spacing-larger;
+    max-width: $cm-spacing-larger;
+
+    .cm-panel-body {
+      overflow: hidden;
+      visibility: hidden;
+    }
+  }
+}
+
+.cm-panel-layout-main {
+  position: relative;
+  overflow-x: auto;
+  min-height: calc(100vh - 40px);
+}
