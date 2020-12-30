@@ -9,6 +9,7 @@ $panel-max-height: calc(100vh - 63px);
   list-style-type: none;
   max-height: $panel-max-height;
   overflow-y: auto;
+  padding: 0;
 }
 
 .bp3-non-ideal-state {
