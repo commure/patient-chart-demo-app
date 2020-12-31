@@ -1,8 +1,5 @@
-$cm-spacing-medium-large: 12px !default;
-$cm-spacing-large: 16px !default;
-
 .cm-search-input {
-  margin: $cm-spacing-medium-large;
-  margin-bottom: $cm-spacing-large;
-  margin-top: 60px + $cm-spacing-large;
+  margin: $spacing-medium-large;
+  margin-bottom: $spacing-large;
+  margin-top: 60px + $spacing-large;
 }

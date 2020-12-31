@@ -1,18 +1,15 @@
-$white: #fff !default;
-$border-color: #d5d5db !default;
-$cm-spacing-large: 16px !default;
-$cm-spacing-larger: 24px !default;
-$cm-grey-text-color: #44444f !default;
+$border-color: #d5d5db;
+$grey-text-color: #44444f;
 
 %toggle-button {
   background-color: $white;
-  border-radius: $cm-spacing-large;
-  width: $cm-spacing-larger;
-  height: $cm-spacing-larger;
+  border-radius: $spacing-large;
+  width: $spacing-larger;
+  height: $spacing-larger;
   border: 1px solid $border-color;
   box-shadow: 0px 3px 16px rgba(0, 0, 0, 0.1);
   svg {
-    fill: $cm-grey-text-color;
+    fill: $grey-text-color;
   }
   &:hover {
     background-color: $white;
@@ -34,7 +31,7 @@ $cm-grey-text-color: #44444f !default;
   width: 242px;
 
   &-toggle-button {
-    margin-left: -1 * $cm-spacing-large;
+    margin-left: -1 * $spacing-large;
     margin-top: 115px;
     z-index: 5;
     align-self: flex-start;
@@ -44,8 +41,8 @@ $cm-grey-text-color: #44444f !default;
   }
 
   &--closed {
-    min-width: $cm-spacing-larger;
-    max-width: $cm-spacing-larger;
+    min-width: $spacing-larger;
+    max-width: $spacing-larger;
 
     .cm-panel-body {
       overflow: hidden;

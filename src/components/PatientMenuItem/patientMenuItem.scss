@@ -1,16 +1,5 @@
-$blue2: #1468c7 !default;
-$dark-gray5: #454b52 !default;
-$gray3: #9098a1 !default;
-$white: #ffffff !default;
-$gray5: #c4cad1 !default;
-
-$cm-label-font-weight: 600 !default;
-$cm-spacing-large: 16px !default;
-$cm-spacing-larger: 24px !default;
-$cm-spacing-small: 4px !default;
-
 .patient-menu-item {
-  padding: $cm-spacing-large $cm-spacing-larger;
+  padding: $spacing-large $spacing-larger;
   background-color: $white;
   &--selected {
     box-shadow: inset 3px 0 0 $blue2;
@@ -27,10 +16,10 @@ $cm-spacing-small: 4px !default;
   }
   &__name {
     text-transform: uppercase;
-    font-weight: $cm-label-font-weight;
-    font-size: $cm-spacing-large;
-    color: $dark-gray5;
-    margin-bottom: $cm-spacing-small;
+    font-weight: $label-font-weight;
+    font-size: $spacing-large;
+    color: $dark-gray;
+    margin-bottom: $spacing-small;
   }
   &__dob {
     color: $gray3;
